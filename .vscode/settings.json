@@ -1,0 +1,34 @@
+{
+  // ファイルのencordをutf8に設定する。
+  "files.encoding": "utf8",
+
+  // 最終行には改行を挿入する。
+  "files.insertFinalNewline": true,
+
+  "editor.codeActionsOnSave": {
+    // 保存時にESLintのオートフィックスもかかるようにしておく。
+    "source.fixAll.eslint": "explicit"
+  },
+
+  // 自動でPrettierのフォーマットがかかるようにしておく。
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+
+  // フォーマットは常にかかっている状態を維持する。
+  "editor.formatOnPaste": true,
+  "editor.formatOnSave": true,
+  "editor.formatOnType": true,
+
+  // エディタでインデントを指定する。
+  "editor.insertSpaces": true,
+  "editor.tabSize": 2,
+
+  // TypeScriptはビルドに使用しているものと同じものを利用する。
+  "typescript.tsdk": "node_modules/typescript/lib",
+
+  // ローカルの設定を上書きされるように指定する。
+  "[typescript][typescriptreact][javascript][javascriptreact][json][jsonc]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.insertSpaces": true,
+    "editor.tabSize": 2
+  }
+}

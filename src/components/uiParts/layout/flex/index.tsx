@@ -1,11 +1,6 @@
-import { ReactNode } from 'react';
 import { FlexPresenter } from './presenter';
 
 type DivBaseProps = React.HTMLAttributes<HTMLDivElement>;
-
-type FlexChildrenProps = {
-  children: ReactNode;
-};
 
 export type JustifyContentType =
   | 'justifyStart'
@@ -56,9 +51,9 @@ export type FlexCssProps = {
   gap?: string;
 };
 
-export type FlexLayoutProps = FlexCssProps & FlexChildrenProps & DivBaseProps;
+export type FlexLayoutProps = FlexCssProps & DivBaseProps;
 
-export const FlexLayout = (props: FlexLayoutProps) => {
+const FlexLayout = (props: FlexLayoutProps) => {
   const {
     children,
     direction,
@@ -80,3 +75,15 @@ export const FlexLayout = (props: FlexLayoutProps) => {
     </FlexPresenter>
   );
 };
+
+export type ShortFlexLayoutProps = Omit<FlexLayoutProps, 'direction'>;
+
+/** 水平方向のFlexLayout */
+export const FlexLayoutX = (props: ShortFlexLayoutProps) => (
+  <FlexLayout direction="x" {...props} />
+);
+
+/** 垂直方向のFlexLayout */
+export const FlexLayoutY = (props: ShortFlexLayoutProps) => (
+  <FlexLayout direction="y" {...props} />
+);

@@ -14,8 +14,12 @@
     "plugin:storybook/recommended",
     "prettier"
   ],
+  "plugins": ["unused-imports"],
   "rules": {
     "consistent-return": "off",
+
+    // switch分のdefault caseを不要にする。
+    "default-case": "off",
 
     "default-param-last": "off",
     "@typescript-eslint/default-param-last": ["error"],
@@ -35,16 +39,19 @@
     "import/prefer-default-export": "off",
     // アロー関数を許容する。
     "react/function-component-definition": "off",
+    "arrow-body-style": "off",
     // Typescriptでは不要なため削除する。
     "react/jsx-props-no-spreading": "off",
     "react/no-unused-prop-types": "off",
     "react/prop-types": "off",
-    "react/require-default-props": "off"
+    "react/require-default-props": "off",
+    // 不要なimportを削除する。
+    "unused-imports/no-unused-imports": "error"
   },
   "overrides": [
     // appディレクトリ配下とStoryファイルはdefault exportを利用する。
     {
-      "files": ["src/app/*", "**/*.stories.*"],
+      "files": ["src/app/**", "**/*.stories.*"],
       "rules": {
         "import/no-anonymous-default-export": "off",
         "import/no-default-export": "off"
